@@ -32,10 +32,10 @@ if you don’t know how to recover one of these units, **don’t run this**.
 - nfc reader
 
 **dongle image:**  
-`http://cdn.jarynb.com/uploads/1769021243-IMG_8257.webp`
+http://cdn.jarynb.com/uploads/1769021243-IMG_8257.webp
 
 **reader image:**  
-`http://cdn.jarynb.com/uploads/1769021531-IMG_8258.webp`
+http://cdn.jarynb.com/uploads/1769021531-IMG_8258.webp
 
 ---
 
