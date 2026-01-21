@@ -22,6 +22,19 @@ if you don’t know how to recover one of these units, **don’t run this**.
 
 ---
 
+## how to get it (important)
+
+👉 **do not clone this repo and run it directly**
+
+to actually use the emulator, **download the latest release** from the  
+**GitHub Releases tab**.
+
+the release archive includes **all required files** and is what you should put on the usb drive.
+
+this repository itself only exists to host the installer script source.
+
+---
+
 ## hardware / firmware requirements
 
 ### hardware
@@ -33,25 +46,29 @@ if you don’t know how to recover one of these units, **don’t run this**.
 
 ![ProxDongl3 dongle](http://cdn.jarynb.com/uploads/1769021243-IMG_8257.webp)
 
-![Init Proxmobi3 reader](http://cdn.jarynb.com/uploads/1769021258-IMG_8258.webp)
-
+![Init Proxmobil3 reader](http://cdn.jarynb.com/uploads/1769021258-IMG_8258.webp)
 
 ---
 
 ## what this repo includes (important)
 
-**this repository currently only includes:**
-- `autorun.sh` (the installer / setup script)
+**this repository only includes:**
+- `autorun.sh` — the installer / setup script
 
-**it does NOT include (yet):**
+**it does NOT include:**
 - `starting.bgra`
 - `anim.bgra`
 - `hit.bgra`
 - `beep.u8.pcm`
-- the installed `standby.sh`
+- the generated `standby.sh`
 
-those assets will be published at a later date.  
-if you’d like access in the meantime, **reach out to me directly**.
+those files are **intentionally excluded** due to size constraints.
+
+ **the GitHub release includes all required files**  
+so you do not need to source or build them yourself.
+
+the raw assets may be published here at a later date.  
+if you’d like access sooner, feel free to **reach out to me directly**.
 
 ---
 
@@ -60,31 +77,31 @@ if you’d like access in the meantime, **reach out to me directly**.
 - installs a persistent `standby.service`
 - shows:
   - a **startup animation** before nx initializes hardware
-  - a **looping standby animation**
+  - a **looping standby animation** during idle
 - temporarily starts nx to:
   - initialize barcode + nfc hardware
   - create required serial device links
 - stops nx and disables the pic32 watchdog
 - triggers **hit animation + beep** on:
-  - barcode scan
-  - nfc tap
+  - barcode scans
+  - nfc taps
 - prevents the display from going blank during idle operation
 
 ---
 
 ## setup instructions
 
-1. format a usb drive as **fat32**
-2. place the following files in the **root of the usb**:
-autorun.sh
-starting.bgra
-anim.bgra
-hit.bgra
-beep.u8.pcm
-*(note: only `autorun.sh` is included in this repo for now)*
-3. insert the usb into the proxdongl3
-4. power on the device
-5. wait for the installer to complete
+1. download the latest release from the **releases tab**
+2. format a usb drive as **fat32**
+3. copy the release contents to the **root of the usb**:
+   - `autorun.sh`
+   - `starting.bgra`
+   - `anim.bgra`
+   - `hit.bgra`
+   - `beep.u8.pcm`
+4. insert the usb into the proxdongl3
+5. power on the device
+6. wait for the installer to complete
 
 logs will be written to:
 - `/tmp/autorun.log`
