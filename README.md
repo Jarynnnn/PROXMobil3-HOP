@@ -40,9 +40,6 @@ this repository itself only exists to host the installer script source.
 ### hardware
 - init proxmobil3 validator
 - proxdongl3 by [kevin wallace](https://kevin.wallace.seattle.wa.us/pm3/)
-- 800×480 framebuffer display (`/dev/fb0`)
-- barcode scanner
-- nfc reader
 
 ![ProxDongl3 dongle](http://cdn.jarynb.com/uploads/1769021243-IMG_8257.webp)
 
