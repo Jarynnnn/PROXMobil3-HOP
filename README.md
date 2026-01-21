@@ -31,11 +31,10 @@ if you don’t know how to recover one of these units, **don’t run this**.
 - barcode scanner
 - nfc reader
 
-**dongle image:**  
-http://cdn.jarynb.com/uploads/1769021243-IMG_8257.webp
+![ProxDongl3 dongle](http://cdn.jarynb.com/uploads/1769021243-IMG_8257.webp)
 
-**reader image:**  
-http://cdn.jarynb.com/uploads/1769021531-IMG_8258.webp
+![Init Proxmobi3 reader](http://cdn.jarynb.com/uploads/1769021258-IMG_8258.webp)
+
 
 ---
 
