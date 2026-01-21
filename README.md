@@ -24,7 +24,7 @@ if you don’t know how to recover one of these units, **don’t run this**.
 
 ## how to get it (important)
 
-👉 **do not clone this repo and run it directly**
+!!! **do not clone this repo and run it directly** !!!
 
 to actually use the emulator, **download the latest release** from the  
 **GitHub Releases tab**.
