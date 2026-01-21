@@ -1,67 +1,100 @@
-# Portland HOP Standby Emulator (for Init PROXMobil3 Transit Readers)
+# trimet hop standby emulator  
+*(for init proxmobil3 transit card readers)*
 
-A custom **standby / idle emulator** for Init PROXMobil3 transit validators that recreates a **Portland, OR HOP–style experience** using framebuffer animation, barcode scans, and NFC taps.
+this is a **standby / idle screen emulator** for init proxmobil3 transit validators that recreates a **portland hop–style look and feel**.
 
-This replaces the stock idle screen with a looping animation and provides visual + audio feedback when a card or barcode is presented.
+it replaces the stock idle behavior with framebuffer animations and gives visual + audio feedback when a card or barcode is scanned.
 
-> ⚠️ **This is an emulator / visual behavior mod only.**  
-> It does **not** connect to TriMet systems or process real fares.
-
----
-
-## ⚠️ VERY IMPORTANT WARNING
-
-- **This project remounts the root filesystem (`/`) as read-write**
-  - Required to install a persistent `systemd` service
-  - Interrupting this process can **brick the device**
-- This is **unsupported firmware modification**
-- **Proceed entirely at your own risk**
-
-If you don’t know how to recover the unit, **do not run this**.
+> ⚠️ **this is purely an emulator / visual behavior mod**  
+> it does **not** connect to trimet, hop, or any real fare systems.
 
 ---
 
-## Hardware / Firmware Requirements
+## important warning (please read)
 
-### Hardware
-- Init Proxmobil3
-- ProxDongl3 by [Kevin Wallace](https://kevin.wallace.seattle.wa.us/pm3/)
+- this project **remounts the root filesystem (`/`) as read-write**
+  - required to install a persistent `systemd` service
+  - interrupting this process **can brick the device**
+- this is **unsupported firmware modification**
+- you are doing this **entirely at your own risk**
+
+if you don’t know how to recover one of these units, **don’t run this**.
+
+---
+
+## hardware / firmware requirements
+
+### hardware
+- init proxmobil3 validator
+- proxdongl3 by [kevin wallace](https://kevin.wallace.seattle.wa.us/pm3/)
 - 800×480 framebuffer display (`/dev/fb0`)
-- Barcode scanner
-- NFC reader
+- barcode scanner
+- nfc reader
 
-**Dongle image:**  
+**dongle image:**  
 `http://cdn.jarynb.com/uploads/1769021243-IMG_8257.webp`
 
-**Reader image:**  
-`http://cdn.jarynb.com/uploads/1769021258-IMG_8258.webp`
-
-
-## What This Does
-
-- Installs a persistent **`standby.service`**
-- Shows:
-  - **Startup animation** (before NX initializes devices)
-  - **Looping standby animation**
-- Temporarily starts NX to:
-  - Initialize barcode + NFC hardware
-  - Create serial device links
-- Stops NX and disables the PIC32 watchdog
-- Triggers **hit animation + beep** on:
-  - Barcode scan
-  - NFC tap
-- Prevents idle blank screen during normal operation
+**reader image:**  
+`http://cdn.jarynb.com/uploads/1769021531-IMG_8258.webp`
 
 ---
 
-## Setup Instructions
+## what this repo includes (important)
 
-1. Create a FAT32 formatted USB drives with the following files at it's root:
+**this repository currently only includes:**
+- `autorun.sh` (the installer / setup script)
+
+**it does NOT include (yet):**
+- `starting.bgra`
+- `anim.bgra`
+- `hit.bgra`
+- `beep.u8.pcm`
+- the installed `standby.sh`
+
+those assets will be published at a later date.  
+if you’d like access in the meantime, **reach out to me directly**.
+
+---
+
+## what the script does
+
+- installs a persistent `standby.service`
+- shows:
+  - a **startup animation** before nx initializes hardware
+  - a **looping standby animation**
+- temporarily starts nx to:
+  - initialize barcode + nfc hardware
+  - create required serial device links
+- stops nx and disables the pic32 watchdog
+- triggers **hit animation + beep** on:
+  - barcode scan
+  - nfc tap
+- prevents the display from going blank during idle operation
+
+---
+
+## setup instructions
+
+1. format a usb drive as **fat32**
+2. place the following files in the **root of the usb**:
 autorun.sh
 starting.bgra
 anim.bgra
 hit.bgra
 beep.u8.pcm
-2. Insert USB into the Proxdongl3
-3. Power on the device
-4. Wait for installer to complete
+*(note: only `autorun.sh` is included in this repo for now)*
+3. insert the usb into the proxdongl3
+4. power on the device
+5. wait for the installer to complete
+
+logs will be written to:
+- `/tmp/autorun.log`
+- `/tmp/standby.log`
+
+---
+
+## final notes
+
+this is a fun reverse-engineering / preservation project meant to keep old transit hardware interesting and usable.
+
+it is **not affiliated with trimet, hop, or init** in any way.
