@@ -1,8 +1,8 @@
 #!/bin/sh
 set -eu
 
-# ===================== config =====================
-# Mount USB somewhere always-writable (even if / is still RO)
+# config
+# mount usb in /tmp/ to ensure its writablle
 USB_MNT="/tmp/usb"
 
 # Files expected on USB
@@ -316,7 +316,6 @@ ANIM_FRAMES=$(check_bgra "$ANIM_USB")
 log "Starting frames: $START_FRAMES"
 log "Animation frames: $ANIM_FRAMES"
 
-# Make FS writable for service install (ok if it fails, but usually needed)
 remount_rw || true
 
 write_standby_runtime
